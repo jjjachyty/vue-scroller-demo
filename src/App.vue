@@ -84,6 +84,11 @@
       },
 
       infinite (done) {
+      if(this.bottom > 30){
+       setTimeout(() => {
+       done(true)  // stop circle loading not done()
+        }, 1500)
+      }else{
         setTimeout(() => {
           var start = this.bottom + 1
           for (var i = start; i < start + 10; i++) {
@@ -92,6 +97,7 @@
           this.bottom = this.bottom + 10
           done()
         }, 1500)
+      }
       }
     }
   }
